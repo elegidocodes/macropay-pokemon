@@ -32,6 +32,8 @@ public class PokemonDetail {
     @Expose
     private Integer weight;
 
+    private SpeciesDetail speciesDetail;
+
     public List<Ability> getAbilities() {
         return abilities;
     }
@@ -87,5 +89,15 @@ public class PokemonDetail {
     public void setWeight(Integer weight) {
         this.weight = weight;
     }
+
+    public SpeciesDetail getSpeciesDetail() {
+        return speciesDetail;
+    }
+
+    public void setSpeciesDetail(SpeciesDetail speciesDetail) {
+        this.speciesDetail = speciesDetail;
+    }
+
+
 
 }

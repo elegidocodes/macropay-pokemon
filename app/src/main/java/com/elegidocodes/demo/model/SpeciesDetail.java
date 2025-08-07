@@ -99,4 +99,11 @@ public class SpeciesDetail {
         this.shape = shape;
     }
 
+    public String getCustomName() {
+        if (name == null || name.isEmpty()) {
+            return name;
+        }
+        return name.substring(0, 1).toUpperCase() + name.substring(1);
+    }
+
 }

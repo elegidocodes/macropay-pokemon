@@ -21,7 +21,7 @@ public interface MyAPI {
     @GET("pokemon/{id}")
     Call<PokemonDetail> getPokemonDetail(@Path("id") long id);
 
-    @GET("pokemon/pokemon-species/{id}/")
+    @GET("pokemon-species/{id}/")
     Call<SpeciesDetail> getSpeciesDetail(@Path("id") long id);
 
 }

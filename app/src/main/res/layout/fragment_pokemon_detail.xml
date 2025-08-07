@@ -31,16 +31,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
                         <ImageView
+                            android:id="@+id/imageView"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:contentDescription="TODO"
-                            android:src="@drawable/img"
+                            android:src="@drawable/icon_image_24px"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintDimensionRatio="4:3"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -61,7 +61,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/charizard"
+                        android:text="@{pokemonDetail.speciesDetail.customName}"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 

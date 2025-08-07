@@ -15,6 +15,7 @@ import com.bumptech.glide.RequestManager;
 import com.elegidocodes.demo.R;
 import com.elegidocodes.demo.databinding.PokemonItemBinding;
 import com.elegidocodes.demo.model.Pokemon;
+import com.elegidocodes.demo.utility.NumberUtil;
 
 
 public class PokemonAdapter extends PagingDataAdapter<Pokemon, PokemonAdapter.ViewHolder> {
@@ -69,12 +70,7 @@ public class PokemonAdapter extends PagingDataAdapter<Pokemon, PokemonAdapter.Vi
         }
 
         private void bind(Pokemon pokemon, RequestManager requestManager) {
-            String url = pokemon.getUrl();
-            String[] segments = url.split("/");
-            String id = segments[segments.length - 1].isEmpty()
-                    ? segments[segments.length - 2]
-                    : segments[segments.length - 1];
-
+            long id = NumberUtil.getIdFromUrl(pokemon.getUrl());
             String imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + id + ".png";
 
             requestManager.load(imageUrl).into(image);
