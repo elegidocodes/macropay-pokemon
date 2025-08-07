@@ -13,3 +13,6 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+demo.mp4
+app-release.apk
