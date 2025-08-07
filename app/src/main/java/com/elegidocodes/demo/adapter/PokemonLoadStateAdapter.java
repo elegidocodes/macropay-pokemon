@@ -16,11 +16,11 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.progressindicator.CircularProgressIndicator;
 
 
-public class MovieLoadStateAdapter extends LoadStateAdapter<MovieLoadStateAdapter.ViewModel> {
+public class PokemonLoadStateAdapter extends LoadStateAdapter<PokemonLoadStateAdapter.ViewModel> {
 
     private final View.OnClickListener retry;
 
-    public MovieLoadStateAdapter(View.OnClickListener retry) {
+    public PokemonLoadStateAdapter(View.OnClickListener retry) {
         this.retry = retry;
     }
 
