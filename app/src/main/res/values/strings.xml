@@ -8,4 +8,5 @@
     <string name="password">Password</string>
     <string name="confirm">Confirm</string>
     <string name="charizard">Charizard</string>
+    <string name="flavor_text">Flavor text:</string>
 </resources>

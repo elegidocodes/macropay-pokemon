@@ -45,8 +45,6 @@ public class PokemonDetailFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
     }
 
     @Override
@@ -66,6 +64,11 @@ public class PokemonDetailFragment extends Fragment {
                     .thenAccept(pokemonDetail -> {
                         activity.runOnUiThread(() -> {
                             requestManager.load(pokemonDetail.getSprites().getFrontDefault()).into(binding.imageView);
+                            binding.setPokemonDetail(pokemonDetail);
+
+
+                            binding.indicator.setVisibility(View.GONE);
+                            binding.mainWrapper.setVisibility(View.VISIBLE);
                         });
 
                     })
@@ -73,6 +76,9 @@ public class PokemonDetailFragment extends Fragment {
                         activity.runOnUiThread(() -> {
                             Log.e(TAG, "Error", throwable);
                             Toast.makeText(context, throwable.getMessage(), Toast.LENGTH_SHORT).show();
+
+                            binding.indicator.setVisibility(View.GONE);
+                            binding.mainWrapper.setVisibility(View.GONE);
                         });
 
                         return null;

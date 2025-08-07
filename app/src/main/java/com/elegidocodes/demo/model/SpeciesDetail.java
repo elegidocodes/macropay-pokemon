@@ -106,4 +106,12 @@ public class SpeciesDetail {
         return name.substring(0, 1).toUpperCase() + name.substring(1);
     }
 
+    public String customFlavorText() {
+        if (flavorTextEntries == null || flavorTextEntries.isEmpty()) {
+            return "";
+        }
+        String rawText = flavorTextEntries.get(0).getFlavorText();
+        return rawText.replace("\n", " ").replace("\f", " ").trim();
+    }
+
 }
