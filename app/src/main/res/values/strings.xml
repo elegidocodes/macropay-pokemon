@@ -2,4 +2,6 @@
     <string name="app_name">Macropay Pokemon</string>
     <string name="retry">retry</string>
     <string name="pokemon_poster">Pokemon\\\'s poster</string>
+    <string name="page_title">Macropay Pokemon\n</string>
+    <string name="logout">logout\n</string>
 </resources>
