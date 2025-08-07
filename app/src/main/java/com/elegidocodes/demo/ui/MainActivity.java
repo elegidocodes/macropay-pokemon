@@ -8,6 +8,9 @@ import androidx.databinding.DataBindingUtil;
 import com.elegidocodes.demo.R;
 import com.elegidocodes.demo.databinding.ActivityMainBinding;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;

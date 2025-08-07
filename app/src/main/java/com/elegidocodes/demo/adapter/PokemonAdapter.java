@@ -42,7 +42,7 @@ public class PokemonAdapter extends PagingDataAdapter<Pokemon, PokemonAdapter.Vi
         Pokemon pokemon = getItem(position);
         if (pokemon != null) {
             holder.binding.setPokemon(pokemon);
-            //holder.bind(pokemon, requestManager);
+            holder.bind(pokemon, requestManager);
         }
     }
 
@@ -62,10 +62,17 @@ public class PokemonAdapter extends PagingDataAdapter<Pokemon, PokemonAdapter.Vi
             this.image = binding.image;
         }
 
-        /*private void bind(Movie movie, RequestManager requestManager) {
-            binding.setMovie(movie);
-            requestManager.load("https://image.tmdb.org/t/p/w500" + movie.getPosterPath()).into(poster);
-        }*/
+        private void bind(Pokemon pokemon, RequestManager requestManager) {
+            String url = pokemon.getUrl();
+            String[] segments = url.split("/");
+            String id = segments[segments.length - 1].isEmpty()
+                    ? segments[segments.length - 2]
+                    : segments[segments.length - 1];
+
+            String imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + id + ".png";
+
+            requestManager.load(imageUrl).into(image);
+        }
 
     }
 

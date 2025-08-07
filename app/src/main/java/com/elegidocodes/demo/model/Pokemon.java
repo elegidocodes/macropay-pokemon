@@ -47,6 +47,13 @@ public class Pokemon {
         this.image = image;
     }
 
+    public String getCustomName() {
+        if (name == null || name.isEmpty()) {
+            return name;
+        }
+        return name.substring(0, 1).toUpperCase() + name.substring(1);
+    }
+
     @Override
     public boolean equals(@Nullable Object obj) {
         if (this == obj) return true;

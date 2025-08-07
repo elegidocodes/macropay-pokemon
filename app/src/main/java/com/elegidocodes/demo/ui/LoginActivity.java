@@ -14,6 +14,7 @@ import com.elegidocodes.demo.databinding.ActivityLoginBinding;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -38,10 +39,12 @@ public class LoginActivity extends AppCompatActivity {
         bindViews();
 
         context = LoginActivity.this;
+
+        Log.d("FIREBASE_PROJECT_ID", FirebaseApp.getInstance().getOptions().getProjectId());
+
         firebaseAuth = FirebaseAuth.getInstance();
 
         checkIfAlreadyAuthenticated();
-
         btnLogin.setOnClickListener(v -> performLogin());
     }
 

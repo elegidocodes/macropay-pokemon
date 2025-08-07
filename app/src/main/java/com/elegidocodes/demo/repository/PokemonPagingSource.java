@@ -70,5 +70,6 @@ public class PokemonPagingSource extends RxPagingSource<Integer, Pokemon> {
 
         return null;
     }
+
 }
 

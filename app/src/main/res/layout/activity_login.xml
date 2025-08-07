@@ -32,13 +32,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <com.google.android.material.progressindicator.CircularProgressIndicator
-                        android:id="@+id/indicator"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:indeterminate="true" />
-
                     <ImageView
                         android:id="@+id/imageView"
                         android:layout_width="match_parent"
