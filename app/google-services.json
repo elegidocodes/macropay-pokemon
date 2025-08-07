@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1085122226870",
+    "project_id": "macropay-test",
+    "storage_bucket": "macropay-test.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1085122226870:android:7b77a80f31d92859ad9417",
+        "android_client_info": {
+          "package_name": "com.elegidocodes.demo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANaVGL77pI4T_5liX5A2A8fiDS7hiZFqs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
