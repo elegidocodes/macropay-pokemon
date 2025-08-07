@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".ui.LoginActivity">
 
     <LinearLayout
-        android:id="@+id/mainContent"
+        android:id="@+id/mainWrapper"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="16dp">
@@ -29,7 +25,6 @@
                     style="@style/Widget.Material3.CardView.Outlined"
                     android:layout_width="0dp"
                     android:layout_height="200dp"
-                    app:cardBackgroundColor="@color/black"
                     app:cardCornerRadius="500dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintDimensionRatio="1:1"
@@ -48,8 +43,9 @@
                         android:id="@+id/imageView"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:contentDescription="Hola"
-                        android:scaleType="centerCrop" />
+                        android:contentDescription="Profile Picture"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/img" />
 
                 </com.google.android.material.card.MaterialCardView>
 
@@ -73,7 +69,7 @@
                     android:id="@+id/emailInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Correo"
+                    android:hint="@string/email"
                     app:counterMaxLength="30"
                     app:endIconMode="clear_text">
 
@@ -91,7 +87,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:hint="Contraseña"
+                    android:hint="@string/password"
                     app:counterMaxLength="32"
                     app:endIconMode="password_toggle">
 
@@ -104,14 +100,13 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/buttonLogin"
+                    android:id="@+id/btnLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
                     android:paddingVertical="12dp"
-                    android:text="Ingresar"
-                    android:textColor="@color/white"
-                    android:textSize="16sp" />
+                    android:text="@string/confirm"
+                    android:textColor="@color/white" />
 
             </LinearLayout>
 
@@ -119,4 +114,4 @@
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

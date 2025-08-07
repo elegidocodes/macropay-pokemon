@@ -4,4 +4,7 @@
     <string name="pokemon_poster">Pokemon\\\'s poster</string>
     <string name="page_title">Macropay Pokemon\n</string>
     <string name="logout">logout\n</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm">Confirm</string>
 </resources>
