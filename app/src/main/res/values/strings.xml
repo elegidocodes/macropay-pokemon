@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Macropay Pokemon</string>
+    <string name="retry">retry</string>
+    <string name="pokemon_poster">Pokemon\\\'s poster</string>
 </resources>
