@@ -53,7 +53,7 @@
                 android:layout_marginHorizontal="12dp"
                 android:layout_marginTop="6dp"
                 android:layout_marginBottom="12dp"
-                android:text="@{pokemon.name}"
+                android:text="@{pokemon.customName}"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 

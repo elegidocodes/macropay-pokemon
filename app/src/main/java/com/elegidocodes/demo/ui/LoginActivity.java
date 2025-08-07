@@ -20,6 +20,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private final static String TAG = "LOGIN_ACTIVITY";
+
     private ActivityLoginBinding binding;
 
     private Context context;
@@ -40,7 +42,9 @@ public class LoginActivity extends AppCompatActivity {
 
         context = LoginActivity.this;
 
-        Log.d("FIREBASE_PROJECT_ID", FirebaseApp.getInstance().getOptions().getProjectId());
+        if (FirebaseApp.getInstance().getOptions().getProjectId() != null) {
+            Log.d(TAG, FirebaseApp.getInstance().getOptions().getProjectId());
+        }
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -60,6 +64,7 @@ public class LoginActivity extends AppCompatActivity {
         FirebaseUser user = firebaseAuth.getCurrentUser();
         if (user != null) {
             Toast.makeText(context, "Welcome back", Toast.LENGTH_SHORT).show();
+            goToMainActivity();
         }
     }
 
