@@ -16,23 +16,13 @@ import com.elegidocodes.demo.R;
 
 public class PokemonDetailFragment extends Fragment {
 
-    private PokemonDetailViewModel mViewModel;
-
     public static PokemonDetailFragment newInstance() {
         return new PokemonDetailFragment();
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_pokemon_detail, container, false);
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(PokemonDetailViewModel.class);
-        // TODO: Use the ViewModel
     }
 
 }

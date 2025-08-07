@@ -1,6 +1,5 @@
 package com.elegidocodes.demo.model;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.google.gson.annotations.Expose;
@@ -20,6 +19,10 @@ public class Pokemon {
     @Expose
     private String url;
 
+    @SerializedName("image")
+    @Expose
+    private String image;
+
     public String getName() {
         return name;
     }
@@ -34,6 +37,14 @@ public class Pokemon {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     @Override
@@ -51,12 +62,12 @@ public class Pokemon {
         return Objects.hash(url);
     }
 
-    @NonNull
     @Override
     public String toString() {
         return "Pokemon{" +
                 "name='" + name + '\'' +
                 ", url='" + url + '\'' +
+                ", image='" + image + '\'' +
                 '}';
     }
 
