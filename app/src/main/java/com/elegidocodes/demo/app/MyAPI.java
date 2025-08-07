@@ -2,6 +2,7 @@ package com.elegidocodes.demo.app;
 
 import com.elegidocodes.demo.model.PokemonDetail;
 import com.elegidocodes.demo.model.Result;
+import com.elegidocodes.demo.model.SpeciesDetail;
 
 import io.reactivex.rxjava3.core.Single;
 import retrofit2.Call;
@@ -19,5 +20,8 @@ public interface MyAPI {
 
     @GET("pokemon/{id}")
     Call<PokemonDetail> getPokemonDetail(@Path("id") long id);
+
+    @GET("pokemon/pokemon-species/{id}/")
+    Call<SpeciesDetail> getSpeciesDetail(@Path("id") long id);
 
 }
