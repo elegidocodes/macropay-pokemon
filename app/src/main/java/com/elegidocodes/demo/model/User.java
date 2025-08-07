@@ -1,5 +1,7 @@
 package com.elegidocodes.demo.model;
 
+import androidx.annotation.NonNull;
+
 public class User {
 
     private String uid;
@@ -7,7 +9,6 @@ public class User {
     private String email;
     private String profileImageUrl;
 
-    // Required empty constructor for Firebase deserialization
     public User() {
     }
 
@@ -17,8 +18,6 @@ public class User {
         this.email = email;
         this.profileImageUrl = profileImageUrl;
     }
-
-    // Getters and Setters
 
     public String getUid() {
         return uid;
@@ -51,5 +50,17 @@ public class User {
     public void setProfileImageUrl(String profileImageUrl) {
         this.profileImageUrl = profileImageUrl;
     }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "User{" +
+                "uid='" + uid + '\'' +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", profileImageUrl='" + profileImageUrl + '\'' +
+                '}';
+    }
+
 }
 

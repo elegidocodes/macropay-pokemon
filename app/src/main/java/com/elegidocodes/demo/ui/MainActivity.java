@@ -1,10 +1,11 @@
-package com.elegidocodes.demo;
+package com.elegidocodes.demo.ui;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.elegidocodes.demo.R;
 import com.elegidocodes.demo.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
