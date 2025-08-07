@@ -1,11 +1,13 @@
 package com.elegidocodes.demo.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -22,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
     private final static String TAG = "MAIN_ACTIVITY";
 
+    private Context context;
+
     private ActivityMainBinding binding;
     private MaterialToolbar toolbar;
 
@@ -34,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
 
+        context = MainActivity.this;
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         toolbar = binding.topAppBar;
 
@@ -57,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void logout() {
+        Toast.makeText(context, "Signing out...", Toast.LENGTH_SHORT);
         Log.d(TAG, "Signing out...");
 
         FirebaseAuth.getInstance().signOut();
@@ -66,6 +72,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
 
 }

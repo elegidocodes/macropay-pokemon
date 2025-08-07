@@ -19,22 +19,27 @@ import com.elegidocodes.demo.model.Pokemon;
 
 public class PokemonAdapter extends PagingDataAdapter<Pokemon, PokemonAdapter.ViewHolder> {
 
-    public static final int LOADING_ITEM = 0;
-    public static final int MOVIE_ITEM = 1;
+    public interface OnItemClickListener {
+        void onItemClick(Pokemon pokemon);
+    }
 
     private final RequestManager requestManager;
+    private final OnItemClickListener onItemClickListener;
 
-    public PokemonAdapter(@NonNull DiffUtil.ItemCallback<Pokemon> diffCallback, RequestManager requestManager) {
+    public PokemonAdapter(@NonNull DiffUtil.ItemCallback<Pokemon> diffCallback,
+                          RequestManager requestManager,
+                          OnItemClickListener listener) {
         super(diffCallback);
         this.requestManager = requestManager;
+        this.onItemClickListener = listener;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        PokemonItemBinding movieItemBinding = DataBindingUtil.inflate(layoutInflater, R.layout.pokemon_item, parent, false);
-        return new ViewHolder(movieItemBinding);
+        PokemonItemBinding binding = DataBindingUtil.inflate(layoutInflater, R.layout.pokemon_item, parent, false);
+        return new ViewHolder(binding, onItemClickListener);
     }
 
     @Override
@@ -46,20 +51,21 @@ public class PokemonAdapter extends PagingDataAdapter<Pokemon, PokemonAdapter.Vi
         }
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        return position == getItemCount() ? LOADING_ITEM : MOVIE_ITEM;
-    }
-
     static class ViewHolder extends RecyclerView.ViewHolder {
-
         private final PokemonItemBinding binding;
         private final ImageView image;
 
-        public ViewHolder(PokemonItemBinding binding) {
+        public ViewHolder(PokemonItemBinding binding, OnItemClickListener listener) {
             super(binding.getRoot());
             this.binding = binding;
             this.image = binding.image;
+
+            binding.getRoot().setOnClickListener(v -> {
+                int pos = getAdapterPosition();
+                if (pos != RecyclerView.NO_POSITION) {
+                    listener.onItemClick(binding.getPokemon());
+                }
+            });
         }
 
         private void bind(Pokemon pokemon, RequestManager requestManager) {
@@ -73,8 +79,7 @@ public class PokemonAdapter extends PagingDataAdapter<Pokemon, PokemonAdapter.Vi
 
             requestManager.load(imageUrl).into(image);
         }
-
     }
-
 }
+
 

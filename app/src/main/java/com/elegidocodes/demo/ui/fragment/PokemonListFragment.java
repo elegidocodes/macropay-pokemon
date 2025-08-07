@@ -14,6 +14,8 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.paging.LoadState;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,6 +28,7 @@ import com.elegidocodes.demo.adapter.PokemonComparator;
 import com.elegidocodes.demo.adapter.PokemonLoadStateAdapter;
 import com.elegidocodes.demo.databinding.FragmentPokemonListBinding;
 import com.google.android.material.progressindicator.CircularProgressIndicator;
+import com.google.gson.Gson;
 
 import javax.inject.Inject;
 
@@ -35,6 +38,9 @@ import kotlin.Unit;
 
 @AndroidEntryPoint
 public class PokemonListFragment extends Fragment {
+
+    private final static String TAG = "POKEMON_LIST_FRAGMENT";
+    private final static String POKEMON = "pokemon";
 
     @Inject
     RequestManager requestManager;
@@ -70,7 +76,16 @@ public class PokemonListFragment extends Fragment {
         context = requireContext();
 
         viewmodel = new ViewModelProvider(this).get(PokemonListViewModel.class);
-        adapter = new PokemonAdapter(new PokemonComparator(), requestManager);
+        adapter = new PokemonAdapter(new PokemonComparator(), requestManager, pokemon -> {
+
+            String pokemonJson = new Gson().toJson(pokemon);
+
+            Bundle bundle = new Bundle();
+            bundle.putString(POKEMON, pokemonJson);
+
+            NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
+            navController.navigate(R.id.action_listFragment_to_detailFragment, bundle);
+        });
         adapter.withLoadStateHeader(new PokemonLoadStateAdapter(v -> adapter.retry()));
 
         bindViews();
